@@ -1,0 +1,317 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+h1 {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  color: darkred;
+  transition: 0.5s;
+}
+h1:hover {
+  cursor: wait;
+  font-size: 40px;
+}
+h1:hover + div {
+  width: calc(100% - 20px);
+}
+
+.progress {
+  width: 0%;
+  height: 30px;
+  border-radius: 30px;
+  background-color: rgb(0, 200, 0);
+  margin: 10px;
+  transition: 3s linear;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.container > div {
+  width: 15%;
+  height: 200px;
+  box-shadow: 0 0 20px 5px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.container > .box1 > .wrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.container > .box1 > .wrapper > div {
+  width: 32px;
+  height: 33px;
+  background-color: black;
+  animation: scale 1s ease-in infinite;
+}
+.container > .box1 > .wrapper > div:nth-of-type(1), .container > .box1 > .wrapper > div:nth-of-type(5), .container > .box1 > .wrapper > div:nth-of-type(9) {
+  animation-delay: 0.25s;
+}
+.container > .box1 > .wrapper > div:nth-of-type(2), .container > .box1 > .wrapper > div:nth-of-type(6) {
+  animation-delay: 0.35s;
+}
+.container > .box1 > .wrapper > div:nth-of-type(3) {
+  animation-delay: 0.45s;
+}
+.container > .box1 > .wrapper > div:nth-of-type(4), .container > .box1 > .wrapper > div:nth-of-type(8) {
+  animation-delay: 0.15s;
+}
+.container > .box1 > .wrapper > div:nth-of-type(7) {
+  animation-delay: 0;
+}
+.container > .box2:hover > svg > circle {
+  stroke: rgb(255, 77, 0);
+}
+.container > .box2:hover > svg > text {
+  fill: black;
+}
+.container > .box2 > svg {
+  width: 120px;
+  height: 120px;
+}
+.container > .box2 > svg > circle {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 2px;
+  stroke-dasharray: 90px 80px;
+  animation: box2 linear infinite 1s;
+  transition: 1s;
+}
+.container > .box2 > svg > text {
+  font-size: 17px;
+  font-weight: bold;
+  fill: rgb(255, 77, 0);
+  animation: box21 linear 1.5s infinite;
+  transition: 1s;
+}
+.container .box3 > .wrapper {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.container .box3 > .wrapper > span {
+  display: flex;
+  font-size: 25px;
+  transform: translate(-150px, 40px);
+  animation: span 5s linear infinite;
+}
+.container .box4 > svg {
+  width: 100px;
+  height: 100px;
+}
+.container .box4 > svg > circle {
+  stroke: black;
+  stroke-width: 10px;
+  fill: transparent;
+  stroke-dasharray: 10px 16px;
+  stroke-linecap: round;
+  animation: spinner 4s linear infinite;
+  transform-origin: 50% 50%;
+}
+.container .box5 > .wrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+}
+.container .box5 > .wrapper::after {
+  content: "wait";
+  font-size: 25px;
+  position: absolute;
+  top: 35%;
+  left: 17%;
+  color: white;
+  text-shadow: 0 -5px 10px black, 0 5px 10px black;
+}
+.container .box5 > .wrapper > div {
+  width: 40%;
+  height: 40%;
+}
+.container .box5 > .wrapper > div:nth-of-type(1) {
+  background-color: #193787;
+  animation: box41 2s infinite linear;
+}
+.container .box5 > .wrapper > div:nth-of-type(2) {
+  background-color: #fc4831;
+  animation: box42 2s infinite linear;
+}
+.container .box5 > .wrapper > div:nth-of-type(3) {
+  background-color: #f6ca94;
+  animation: box43 2s infinite linear;
+}
+.container .box5 > .wrapper > div:nth-of-type(4) {
+  background-color: #8d7199;
+  animation: box44 2s infinite linear;
+}
+
+@keyframes scale {
+  0% {
+    scale: 1;
+  }
+  20% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}
+@keyframes box2 {
+  to {
+    stroke-dashoffset: 350px;
+  }
+}
+@keyframes box21 {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes span {
+  0% {
+    transform: translate(-200px, 40px);
+    color: black;
+  }
+  20% {
+    transform: translate(0, 0);
+    color: black;
+  }
+  50% {
+    transform: translate(0, 0);
+    color: rgb(255, 77, 0);
+  }
+  80% {
+    transform: translate(0, 0);
+    color: black;
+  }
+  100% {
+    transform: translate(200px, 40px);
+  }
+}
+.box3 > .wrapper > span:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.box3 > .wrapper > span:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+
+.box3 > .wrapper > span:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+.box3 > .wrapper > span:nth-of-type(4) {
+  animation-delay: 0.9s;
+}
+
+.box3 > .wrapper > span:nth-of-type(5) {
+  animation-delay: 1.2s;
+}
+
+.box3 > .wrapper > span:nth-of-type(6) {
+  animation-delay: 1.5s;
+}
+
+.box3 > .wrapper > span:nth-of-type(7) {
+  animation-delay: 1.8s;
+}
+
+@keyframes spinner {
+  0% {
+    stroke-dasharray: 10px 16px;
+    transform: scale(1);
+  }
+  50% {
+    stroke-dasharray: 2px 10px;
+    transform: scale(1.4);
+    stroke-dashoffset: 157px;
+  }
+  100% {
+    stroke-dasharray: 10px 16px;
+    transform: scale(1);
+  }
+}
+@keyframes box41 {
+  25% {
+    transform: translate(50px, 0) rotate(90deg);
+  }
+  50% {
+    transform: translate(50px, 50px) rotate(90deg);
+  }
+  75% {
+    transform: translate(0, 50px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0) rotate(0);
+  }
+}
+@keyframes box44 {
+  25% {
+    transform: translate(-50px, 0) rotate(-90deg);
+  }
+  50% {
+    transform: translate(-50px, -50px) rotate(-90deg);
+  }
+  75% {
+    transform: translate(0, -50px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0) rotate(0);
+  }
+}
+@keyframes box42 {
+  25% {
+    transform: translate(0, 50px);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+  75% {
+    transform: translate(-50px, 0);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes box43 {
+  25% {
+    transform: translate(0, -50px);
+  }
+  50% {
+    transform: translate(50px, -50px);
+  }
+  75% {
+    transform: translate(50px, 0);
+  }
+  100% {
+    transform: translate(0);
+  }
+}/*# sourceMappingURL=master1.css.map */

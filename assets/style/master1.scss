@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+$btest: 1px solid red;
+
+h1 {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    // border: $btest;
+    color: darkred;
+    transition: 0.5s;
+
+    // margin-top: 30px;
+    &:hover {
+        cursor: wait;
+        font-size: 40px;
+    }
+
+    &:hover+div {
+        width: calc(100% - 20px);
+    }
+}
+
+.progress {
+    width: 0%;
+    height: 30px;
+    border-radius: 30px;
+    background-color: rgb(0, 200, 0);
+    margin: 10px;
+    transition: 3s linear;
+
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+
+    >div {
+        width: 15%;
+        height: 200px;
+        // border: $btest;
+        box-shadow: 0 0 20px 5px black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    >.box1>.wrapper {
+        width: 100px;
+        height: 100px;
+        // border: $btest;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        >div {
+            width: 32px;
+            height: 33px;
+            background-color: black;
+            // margin: 0.5px;
+            animation: scale 1s ease-in infinite;
+
+            &:nth-of-type(1),
+            &:nth-of-type(5),
+            &:nth-of-type(9) {
+                animation-delay: 0.25s;
+            }
+
+            &:nth-of-type(2),
+            &:nth-of-type(6) {
+                animation-delay: 0.35s;
+
+            }
+
+            &:nth-of-type(3) {
+                animation-delay: 0.45s;
+            }
+
+            &:nth-of-type(4),
+            &:nth-of-type(8) {
+                animation-delay: 0.15s;
+            }
+
+            &:nth-of-type(7) {
+                animation-delay: 0;
+            }
+        }
+    }
+
+    >.box2 {
+        &:hover>svg>circle {
+            stroke: rgb(255, 77, 0);
+        }
+
+        &:hover>svg>text {
+            fill: black;
+        }
+
+        >svg {
+            width: 120px;
+            height: 120px;
+            // border: $btest;
+
+            >circle {
+                fill: transparent;
+                stroke: black;
+                stroke-width: 2px;
+                stroke-dasharray: 90px 80px;
+                animation: box2 linear infinite 1s;
+                transition: 1s;
+            }
+
+            >text {
+                font-size: 17px;
+                font-weight: bold;
+                fill: rgb(255, 77, 0);
+                animation: box21 linear 1.5s infinite;
+                transition: 1s;
+            }
+        }
+    }
+
+    .box3>.wrapper {
+        width: 100%;
+        height: 40px;
+        // border: $btest;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        >span {
+            display: flex;
+            font-size: 25px;
+            transform: translate(-150px, 40px);
+            animation: span 5s linear infinite ;
+
+        }
+    }
+    .box4>svg{
+        width: 100px;
+        height: 100px;
+        // border: $btest;
+        >circle{
+            stroke: black;
+            stroke-width: 10px;
+            fill: transparent;
+            stroke-dasharray: 10px 16px;
+            stroke-linecap: round;
+            animation: spinner 4s linear infinite;
+            transform-origin: 50% 50%;
+        }
+    }
+
+    .box5>.wrapper{
+        width: 100px;
+        height: 100px;
+        // border: $btest;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+        &::after{
+            content: 'wait';
+            font-size: 25px;
+            position: absolute;
+            top: 35%;
+            left: 17%;
+            color: white;
+            text-shadow: 0 -5px 10px black,0 5px 10px black;
+        }
+        >div{
+            width: 40%;
+            height: 40%;
+            // background-color: brown;
+        }
+        >div:nth-of-type(1){
+            background-color: #193787;
+            animation: box41 2s infinite linear;
+        
+        }
+        >div:nth-of-type(2){
+            background-color: #fc4831;
+            animation: box42 2s infinite linear;
+        }
+        >div:nth-of-type(3){
+            background-color: #f6ca94;
+            animation: box43 2s infinite linear;
+            
+        }
+        >div:nth-of-type(4){
+            background-color: #8d7199;
+            animation: box44 2s infinite linear;
+        
+        }
+    }
+
+  
+
+
+
+}
+
+    @keyframes scale {
+        0% {
+            scale: 1;
+        }
+
+        20% {
+            scale: 1;
+        }
+
+        100% {
+            scale: 0;
+        }
+
+    }
+
+    @keyframes box2 {
+        to {
+            stroke-dashoffset: 350px;
+
+        }
+    }
+
+    @keyframes box21 {
+        0% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 1;
+
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes span {
+        0% {
+            transform: translate(-200px, 40px);
+            color: black;
+        }
+
+        20% {
+            transform: translate(0, 0);
+            color: black;
+        }
+
+        50% {
+            transform: translate(0, 0);
+            color: rgb(255, 77, 0);
+        }
+
+        80% {
+            transform: translate(0, 0);
+            color: black;
+        }
+
+        100% {
+            transform: translate(200px, 40px);
+        }
+
+    }
+
+    @for $i from 1 through 7 {
+        .box3>.wrapper>span:nth-of-type(#{$i}) {
+            animation-delay: #{$i*0.3-0.3}s;
+        }
+    }
+
+@keyframes spinner {
+    0%{
+        stroke-dasharray: 10px 16px;
+        transform: scale(1);
+    }
+    50%{
+        stroke-dasharray: 2px 10px;
+        transform: scale(1.4);
+        stroke-dashoffset: 157px;
+    }
+    100%{
+        stroke-dasharray: 10px 16px;
+        transform: scale(1);
+    }
+}
+
+@keyframes box41 {
+    
+    25%{
+        transform: translate(50px,0) rotate(90deg);
+    }
+    50%{
+        transform: translate(50px,50px) rotate(90deg);
+    }
+     75%{
+         transform: translate(0,50px) rotate(0deg);
+     }
+     100%{
+          transform: translate(0) rotate(0);
+     }
+}
+@keyframes box44 {
+    
+    25%{
+        transform: translate(-50px,0) rotate(-90deg);
+    }
+    50%{
+        transform: translate(-50px,-50px) rotate(-90deg);
+    }
+     75%{
+         transform: translate(0,-50px) rotate(0deg);
+     }
+     100%{
+          transform: translate(0) rotate(0);
+     }
+}
+
+@keyframes box42 {
+    25%{
+        transform: translate(0,50px);
+    }
+    50%{
+        transform: translate(-50px,50px);
+    }
+    75%{
+        transform: translate(-50px,0);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+@keyframes box43 {
+    25%{
+        transform: translate(0,-50px);
+    }
+    50%{
+        transform: translate(50px,-50px);
+    }
+    75%{
+        transform: translate(50px,0);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
